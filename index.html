@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>王天骁 · Tianxiao Wang — 上海师范大学</title>
+<meta name="description" content="王天骁（Tianxiao Wang），上海师范大学对外汉语学院副教授。研究方向：变异社会语言学、社会语音学、语言与媒体、语言与身份、二语社会语言变异习得与感知。">
+<meta name="author" content="Tianxiao Wang">
+
+<!--
+  ============================================================
+  使用说明（改内容只看这里）
+  1. 双语：所有文案都成对写在 <span data-lang="zh"> / <span data-lang="en"> 里，
+     两种语言都要改，切换按钮会自动隐藏另一种。
+  2. 论文：复制 <li class="pub"> 整块即可新增一条；未确认的内容都标了 TODO。
+  3. 头像：assets/photo.jpg（800×800 正方形，源图 /Users/wangtianxiao/转移/证件照/自然照.jpg）。
+     换照片时用同名文件覆盖即可，建议正方形、512px 以上。
+  4. 本地预览：cd 到本目录后执行 `python3 -m http.server 8000`，访问 http://localhost:8000
+  5. 部署：整个目录推到 GitHub 仓库，Settings → Pages 选 branch /main / (root) 即可。
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f7f7f5;
+    --fg: #1c1c1e;
+    --fg-soft: #55555c;
+    --line: #e3e3e0;
+    --accent: #003153;       /* Prussian blue */
+    --accent-soft: #e9eff5;
+    --tag-bg: #f0f0ee;
+    --topbar-bg: #E3C79F;    /* champagne */
+    --topbar-fg: #4a3a1e;
+    --topbar-line: #d3b98e;
+    --maxw: 52rem;
+    --radius: 4px;
+  }
+  html[data-theme="dark"] {
+    --bg: #16171a;
+    --bg-soft: #1d1f23;
+    --fg: #e8e8e6;
+    --fg-soft: #a8a8ad;
+    --line: #2c2f34;
+    --accent: #7fb2dd;
+    --accent-soft: #14273a;
+    --tag-bg: #23262b;
+    --topbar-bg: #2b2620;
+    --topbar-fg: #b3a894;
+    --topbar-line: #45403a;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 400 17px/1.72 "Charter", "Source Serif 4", "Iowan Old Style",
+          "Songti SC", "Noto Serif CJK SC", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: currentColor; }
+  p { margin: 0 0 1rem; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  /* ---------- language switching ---------- */
+  /* !important 是故意的：防止以后给文案元素加 class 时被样式优先级覆盖 */
+  html[lang="en"] [data-lang="zh"] { display: none !important; }
+  html[lang="zh"] [data-lang="en"] { display: none !important; }
+  html[lang="en"] { font-family: "Charter", "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif; }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--topbar-bg);
+    border-bottom: 1px solid var(--topbar-line);
+  }
+  .topbar-in {
+    max-width: calc(var(--maxw) + 11rem); margin: 0 auto; padding: .55rem 1.25rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .topbar .who {
+    font: 600 13px/1 ui-sans-serif, -apple-system, "PingFang SC", system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--topbar-fg);
+    white-space: nowrap;
+  }
+  nav.sitenav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .35rem .8rem; margin-left: auto; }
+  nav.sitenav a {
+    font: 500 12.5px/1 ui-sans-serif, -apple-system, "PingFang SC", system-ui, sans-serif;
+    color: var(--topbar-fg); border-bottom: none; white-space: nowrap; padding: .35rem 0;
+  }
+  nav.sitenav a:hover, nav.sitenav a.active { color: var(--accent); }
+  .tools { display: flex; gap: .4rem; flex: none; }
+  .btn {
+    font: 600 12px/1 ui-sans-serif, system-ui, sans-serif;
+    color: var(--topbar-fg); background: color-mix(in srgb, #fff 26%, var(--topbar-bg));
+    border: 1px solid var(--topbar-line); border-radius: 999px;
+    padding: .42rem .6rem; cursor: pointer;
+  }
+  .btn:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- layout ---------- */
+  main { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem 5rem; }
+
+  header.hero { display: flex; gap: 2rem; align-items: flex-start; padding: 3rem 0 2.25rem; }
+  .photo { flex: none; width: 176px; }
+  .photo img {
+    width: 176px; height: 176px; object-fit: cover; display: block;
+    border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-soft);
+  }
+  .idcard { flex: 1 1 auto; min-width: 0; }
+  h1.name { font-size: 2rem; line-height: 1.2; margin: 0 0 .2rem; font-weight: 600; letter-spacing: .01em; }
+  h1.name .en-name { display: block; font-size: 1.15rem; font-weight: 400; font-style: italic; color: var(--fg-soft); margin-top: .25rem; }
+  .role { color: var(--fg-soft); font-size: 1.02rem; margin: .15rem 0 1rem; }
+  .role strong { color: var(--fg); font-weight: 600; }
+  .metalist { font: 400 15px/1.9 ui-sans-serif, -apple-system, "PingFang SC", system-ui, sans-serif; color: var(--fg-soft); }
+  .metalist li { display: flex; gap: .5rem; }
+  .metalist .k { flex: none; width: 6.2rem; color: var(--fg); opacity: .55; }
+  .links { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.1rem; }
+  .chip {
+    font: 500 13px/1 ui-sans-serif, system-ui, sans-serif;
+    border: 1px solid var(--line); border-radius: 999px; padding: .45rem .75rem;
+    color: var(--fg-soft); background: var(--bg);
+  }
+  .chip:hover { color: var(--accent); border-color: var(--accent); }
+  .chip.todo { border-style: dashed; opacity: .6; }
+
+  section { padding: 2.4rem 0 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; }
+  h2 {
+    font-size: 1.22rem; font-weight: 600; margin: 0 0 1.25rem;
+    letter-spacing: .02em; display: flex; align-items: baseline; gap: .6rem;
+  }
+  h2::after { content: ""; flex: 1 1 auto; height: 1px; background: var(--line); }
+
+  /* interests */
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .tag {
+    background: var(--tag-bg); border-radius: var(--radius); padding: .4rem .7rem;
+    font: 500 14px/1.4 ui-sans-serif, -apple-system, "PingFang SC", system-ui, sans-serif;
+    color: var(--fg);
+  }
+
+  /* courses */
+  ul.courses { margin: 0; padding: 0; list-style: none; }
+  ul.courses li { position: relative; padding-left: 1.1rem; margin-bottom: .5rem; }
+  ul.courses li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+
+  /* subheads */
+  h3.subhead { font-size: 1.04rem; font-weight: 600; margin: 2.3rem 0 1.1rem; color: var(--accent); }
+  h4.subhead2 { font-size: .93rem; font-weight: 600; margin: 1.7rem 0 .9rem; color: var(--fg-soft);
+                font-family: ui-sans-serif, system-ui, sans-serif; letter-spacing: .03em; }
+  /* publications */
+  .langtag { font: 500 12px/1 ui-sans-serif, system-ui, sans-serif; color: var(--fg-soft); }
+  ul.pubs > li.pub { margin-bottom: 1.5rem; padding-left: 1.6rem; text-indent: -1.6rem; }
+  ul.talks > li.pub { margin-bottom: 1.1rem; }
+  ul.talks > li.pub .venue { color: var(--fg-soft); font-size: .95rem; }
+  ul.pubs > li.pub > div { text-indent: 0; padding-left: 1.6rem; margin-left: -1.6rem; }
+  .pub .title { font-weight: 600; }
+  .pub .auth { color: var(--fg-soft); }
+  .pub .auth .me { color: var(--fg); font-weight: 600; }
+  .pub .venue em { font-style: italic; }
+  .pub .badges { display: inline-flex; gap: .35rem; flex-wrap: wrap; margin-left: .4rem; text-indent: 0; }
+  .pub .badges > span { display: inline-flex; gap: .35rem; }
+  .badge {
+    font: 600 11px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .02em;
+    color: var(--accent); background: var(--accent-soft);
+    border-radius: 3px; padding: .28rem .4rem; vertical-align: 1px;
+  }
+  .pub .links { margin: .35rem 0 0; gap: .8rem; }
+  .pub .links a { font: 500 13.5px/1 ui-sans-serif, system-ui, sans-serif; }
+  details.bib { text-indent: 0; margin: .5rem 0 0; }
+  details.bib summary {
+    cursor: pointer; font: 500 13px/1 ui-sans-serif, system-ui, sans-serif; color: var(--fg-soft);
+    list-style: none;
+  }
+  details.bib summary::before { content: "▸ "; }
+  details.bib[open] summary::before { content: "▾ "; }
+  details.bib pre {
+    margin: .6rem 0 0; padding: .85rem 1rem; overflow-x: auto;
+    background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    font: 400 13px/1.6 ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  /* timeline lists (education / experience / service) */
+  ul.timeline li { display: grid; grid-template-columns: 11rem 1fr; gap: 1.2rem; margin-bottom: 1.15rem; }
+  ul.timeline .when {
+    font: 500 14px/1.72 ui-sans-serif, -apple-system, "PingFang SC", system-ui, sans-serif;
+    color: var(--fg-soft); font-variant-numeric: tabular-nums;
+  }
+  ul.timeline .what { min-width: 0; }
+  ul.timeline .what b { display: block; font-weight: 600; }
+  ul.timeline .what > span { color: var(--fg-soft); font-size: .96rem; }
+  .warn { color: var(--accent); font-weight: 600; }
+  .note-todo {
+    border: 1px dashed var(--line); border-left: 3px solid var(--accent);
+    background: var(--bg-soft); border-radius: var(--radius);
+    padding: .85rem 1rem; color: var(--fg-soft); font-size: .95rem;
+  }
+  .note-todo code { font: 400 .9em ui-monospace, Menlo, monospace; color: var(--fg); }
+
+  footer.site {
+    border-top: 1px solid var(--line); margin-top: 3rem; padding: 1.5rem 0 0;
+    font: 400 13.5px/1.7 ui-sans-serif, system-ui, sans-serif; color: var(--fg-soft);
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  }
+
+  .skipback { float: right; font: 500 12px/1 ui-sans-serif, system-ui, sans-serif; color: var(--fg-soft); opacity: 0; transition: opacity .2s; }
+  section:hover .skipback { opacity: .7; }
+
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    header.hero { flex-direction: column; gap: 1.5rem; padding-top: 2rem; }
+    .photo { width: 132px; }
+    .photo img { width: 132px; height: 132px; }
+    .metalist .k { width: 5.4rem; }
+    ul.timeline li { grid-template-columns: 1fr; gap: .15rem; margin-bottom: 1.4rem; }
+    ul.timeline .when { color: var(--accent); }
+    .topbar-in { flex-wrap: wrap; gap: .5rem .8rem; }
+    nav.sitenav { margin-left: 0; order: 3; width: 100%; justify-content: flex-start; }
+    .tools { margin-left: auto; }
+  }
+
+  @media print {
+    .topbar, .tools, .skipback, details.bib pre { display: none !important; }
+    details.bib { display: none; }
+    body { font-size: 11pt; }
+    main { max-width: none; padding: 0; }
+    a { color: var(--fg); }
+    section { break-inside: avoid-page; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <span class="who">Tianxiao Wang</span>
+    <nav class="sitenav" id="sitenav">
+      <a href="#about"><span data-lang="zh">简介</span><span data-lang="en">About</span></a>
+      <a href="#interests"><span data-lang="zh">研究方向</span><span data-lang="en">Research Interests</span></a>
+      <a href="#education"><span data-lang="zh">教育经历</span><span data-lang="en">Education</span></a>
+      <a href="#experience"><span data-lang="zh">工作经历</span><span data-lang="en">Working Experience</span></a>
+      <a href="#publications"><span data-lang="zh">论文发表</span><span data-lang="en">Publications</span></a>
+      <a href="#projects"><span data-lang="zh">课题</span><span data-lang="en">Research Grants</span></a>
+      <a href="#teaching"><span data-lang="zh">课程</span><span data-lang="en">Teaching</span></a>
+      <a href="#service"><span data-lang="zh">学术服务</span><span data-lang="en">Service</span></a>
+    </nav>
+    <div class="tools">
+      <button class="btn" id="langBtn" title="切换语言 / Switch language">EN</button>
+      <button class="btn" id="themeBtn" title="深色 / 浅色">◐</button>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="hero">
+    <div class="photo">
+      <img src="assets/photo.jpg" alt="王天骁 / Tianxiao Wang">
+    </div>
+
+    <div class="idcard">
+      <h1 class="name">
+        <span data-lang="zh">王天骁</span><span data-lang="en">Tianxiao Wang</span>
+        <span class="en-name"><span data-lang="zh">Tianxiao Wang</span><span data-lang="en">王天骁</span></span>
+      </h1>
+
+      <p class="role">
+        <span data-lang="zh"><strong>副教授</strong>，上海师范大学 对外汉语学院</span>
+        <span data-lang="en"><strong>Associate Professor</strong>, International College of Chinese Studies, Shanghai Normal University</span>
+      </p>
+
+      <ul class="metalist">
+        <li><span class="k">Email</span><span><a href="mailto:txwang@shnu.edu.cn">txwang@shnu.edu.cn</a></span></li>
+        <li><span class="k"><span data-lang="zh">单位</span><span data-lang="en">Affiliation</span></span>
+            <span><span data-lang="zh">上海师范大学 对外汉语学院</span><span data-lang="en">Shanghai Normal University</span></span></li>
+      </ul>
+
+      <div class="links">
+        <a class="chip" href="https://scholar.google.com/citations?user=XFLr20YAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="chip" href="https://orcid.org/0000-0003-4367-2256" target="_blank" rel="noopener">ORCID 0000-0003-4367-2256</a>
+        <a class="chip" href="https://teacher.shnu.edu.cn/dwhyxy/wtx1/list.htm" target="_blank" rel="noopener"><span data-lang="zh">上海师大主页</span><span data-lang="en">SHNU Profile</span></a>
+        <a class="chip todo" href="#publications">ResearchGate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about">
+    <a class="skipback" href="#about">↑</a>
+    <h2><span data-lang="zh">简介</span><span data-lang="en">About</span></h2>
+
+    <p>
+      <span data-lang="zh">我的主要研究方向是变异社会语言学，研究兴趣主要集中于语言与身份、语言与媒体、社会语音学，以及二语习得中的社会语言变异习得与社会语言能力发展。近三年的研究主要关注社会因素对汉语语音变异的影响、汉语语音在各类媒体中的应用与变异情况，以及汉语作为第二语言学习者的社会语言变异习得与感知。</span>
+      <span data-lang="en">My work sits in <strong>sociolinguistic variation</strong>, with interests in language and identity, language and media, sociophonetics, and the intersection of second language acquisition and sociolinguistics — in particular the acquisition of sociolinguistic variation and the development of sociolinguistic competence. Over the past three years I have focused on how social factors shape variation in Chinese (Mandarin) pronunciation, how Chinese speech is used and varies across media, and how learners of Chinese as a second language acquire and perceive sociolinguistic variation.</span>
+    </p>
+
+  </section>
+
+  <!-- ===================== INTERESTS ===================== -->
+  <section id="interests">
+    <h2><span data-lang="zh">研究方向</span><span data-lang="en">Research Interests</span></h2>
+    <div class="tags">
+      <span class="tag"><span data-lang="zh">变异社会语言学</span><span data-lang="en">Sociolinguistic Variation</span></span>
+      <span class="tag"><span data-lang="zh">社会语音学</span><span data-lang="en">Sociophonetics</span></span>
+      <span class="tag"><span data-lang="zh">语言与身份</span><span data-lang="en">Language &amp; Identity</span></span>
+      <span class="tag"><span data-lang="zh">语言与媒体</span><span data-lang="en">Language &amp; Media</span></span>
+      <span class="tag"><span data-lang="zh">二语社会语言变异习得与感知</span><span data-lang="en">L2 Acquisition &amp; Perception of Sociolinguistic Variation</span></span>
+      <span class="tag"><span data-lang="zh">社会语言能力发展</span><span data-lang="en">Sociolinguistic Competence</span></span>
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION ===================== -->
+  <section id="education">
+    <h2><span data-lang="zh">教育经历</span><span data-lang="en">Education</span></h2>
+    <ul class="timeline">
+      <li>
+        <span class="when">2015.08 — 2019.11</span>
+        <span class="what">
+          <b><span data-lang="zh">新加坡国立大学 · 语言学 博士</span><span data-lang="en">National University of Singapore · PhD in Linguistics</span></b>
+          <span><span data-lang="zh">新加坡 ｜ 导师：Rebecca Lurie Starr 博士</span><span data-lang="en">Singapore ｜ Advisor: Dr. Rebecca Lurie Starr</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2011.09 — 2015.07</span>
+        <span class="what">
+          <b><span data-lang="zh">华东师范大学 · 文学学士（对外汉语）</span><span data-lang="en">East China Normal University · B.A., Teaching Chinese as a Foreign Language</span></b>
+          <span><span data-lang="zh">中国上海 ｜ 同时辅修经济学（金融）获第二学士学位</span><span data-lang="en">Shanghai, China ｜ Minor in Economics (Finance)</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2010.09 — 2011.07</span>
+        <span class="what">
+          <b><span data-lang="zh">华东师范大学 · 广播电视编导</span><span data-lang="en">East China Normal University · Radio &amp; TV Directing</span></b>
+          <span><span data-lang="zh">中国上海</span><span data-lang="en">Shanghai, China</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2013.08 — 2014.02</span>
+        <span class="what">
+          <b><span data-lang="zh">俄勒冈大学 · Oregon International Internship Program</span><span data-lang="en">University of Oregon · Oregon International Internship Program</span></b>
+          <span><span data-lang="zh">美国俄勒冈州尤金（访学/实习）</span><span data-lang="en">Eugene, OR, USA (visiting / internship)</span></span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section id="experience">
+    <h2><span data-lang="zh">工作经历</span><span data-lang="en">Appointments</span></h2>
+    <ul class="timeline">
+      <li>
+        <span class="when">2026.01 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></span>
+        <span class="what">
+          <b><span data-lang="zh">上海师范大学 对外汉语学院 · 副教授</span><span data-lang="en">Associate Professor, International College of Chinese Studies, Shanghai Normal University</span></b>
+          <span><span data-lang="zh">上海，中国</span><span data-lang="en">Shanghai, China</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2024.01 — 2026.01</span>
+        <span class="what">
+          <b><span data-lang="zh">厦门大学 国际中文教育学院 / 海外教育学院 华文系 · 副教授</span><span data-lang="en">Associate Professor, Department of Chinese Studies, Chinese International Education College / Overseas Education College, Xiamen University</span></b>
+          <span><span data-lang="zh">厦门，中国</span><span data-lang="en">Xiamen, China</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2020.06 — 2024.01</span>
+        <span class="what">
+          <b><span data-lang="zh">厦门大学 国际中文教育学院 / 海外教育学院 华文系 · 助理教授</span><span data-lang="en">Assistant Professor, Department of Chinese Studies, Chinese International Education College / Overseas Education College, Xiamen University</span></b>
+          <span><span data-lang="zh">厦门，中国</span><span data-lang="en">Xiamen, China</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2015.08 — 2018.12</span>
+        <span class="what">
+          <b><span data-lang="zh">新加坡国立大学 原英语语言及文学系（现英语、语言学及戏剧研究系） · 助教</span><span data-lang="en">Teaching Assistant, Department of English Language &amp; Literature (now Department of English Language &amp; Literature, Linguistics and Theatre Studies), National University of Singapore</span></b>
+          <span><span data-lang="zh">新加坡</span><span data-lang="en">Singapore</span></span>
+        </span>
+      </li>
+    </ul>
+    <p><span class="warn" data-lang="zh" style="font-size:.92rem">* 英文院系名称为暂定译法，请按各单位官方英文名核对修改。</span>
+       <span class="warn" data-lang="en" style="font-size:.92rem">* English unit names are provisional; please check them against the official ones.</span></p>
+  </section>
+
+  <!-- ===================== PUBLICATIONS ===================== -->
+  <section id="publications">
+    <h2><span data-lang="zh">论文与会议报告</span><span data-lang="en">Publications &amp; Presentations</span></h2>
+
+    <h3 class="subhead"><span data-lang="zh">期刊论文</span><span data-lang="en">Journal Articles</span></h3>
+    <ul class="pubs">
+
+      <li class="pub">
+        <div>
+        <span class="title"><span data-lang="zh">The code of the streets in Beijing: Style-shifting and changing personae in the performance of Beijing male rappers</span><span data-lang="en">The code of the streets in Beijing: Style-shifting and changing personae in the performance of Beijing male rappers</span></span>
+        <span class="badges"><span data-lang="zh"><span class="badge">独著</span></span><span data-lang="en"><span class="badge">Sole author</span></span></span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span></div>
+        <div class="venue"><em>Language in Society</em>, 54(1), 29–55. 2025.</div>
+        <div class="links"><a href="https://doi.org/10.1017/S0047404523000799" target="_blank" rel="noopener">DOI</a><a href="https://www.cambridge.org/core/product/identifier/S0047404523000799/type/journal_article" target="_blank" rel="noopener">Publisher</a></div>
+        <details class="bib"><summary>BibTeX</summary><pre>@article{wang_code_2025,
+        author    = {Wang, Tianxiao},
+        title     = {The code of the streets in {Beijing}: {Style}-shifting and changing personae in the performance of {Beijing} male rappers},
+        journal   = {Language in Society},
+        volume    = {54},
+        number    = {1},
+        pages     = {29--55},
+        year      = {2025},
+        doi       = {10.1017/S0047404523000799},
+        issn      = {0047-4045, 1469-8013}
+        }</pre></details>
+        </li>
+
+      <li class="pub">
+        <div>
+        <span class="title"><span data-lang="zh">Variation is the way to perfection: imperfect rhyming in Chinese hip hop</span><span data-lang="en">Variation is the way to perfection: imperfect rhyming in Chinese hip hop</span></span>
+        <span class="badges"><span data-lang="zh"><span class="badge">第一作者</span></span><span data-lang="en"><span class="badge">First author</span></span></span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span>, Yuhan Lin</div>
+        <div class="venue"><em>Linguistics Vanguard</em>, 10(1), 505–515. 2024.</div>
+        <div class="links"><a href="https://doi.org/10.1515/lingvan-2024-0093" target="_blank" rel="noopener">DOI</a><a href="https://www.degruyter.com/document/doi/10.1515/lingvan-2024-0093/html" target="_blank" rel="noopener">Publisher</a></div>
+        <details class="bib"><summary>BibTeX</summary><pre>@article{wang_variation_2024,
+        author    = {Wang, Tianxiao and Lin, Yuhan},
+        title     = {Variation is the way to perfection: imperfect rhyming in {Chinese} hip hop},
+        journal   = {Linguistics Vanguard},
+        volume    = {10},
+        number    = {1},
+        pages     = {505--515},
+        year      = {2024},
+        doi       = {10.1515/lingvan-2024-0093},
+        issn      = {2199-174X}
+        }</pre></details>
+        </li>
+
+      <li class="pub">
+        <div>
+        <span class="title"><span data-lang="zh">Rhyming style, persona, and the contested landscape of authentic Chinese hip hop</span><span data-lang="en">Rhyming style, persona, and the contested landscape of authentic Chinese hip hop</span></span>
+        <span class="badges"><span data-lang="zh"><span class="badge">通讯作者</span><span class="badge">共同一作</span></span><span data-lang="en"><span class="badge">Corresponding</span><span class="badge">Co-first author</span></span></span>
+        </div>
+        <div class="auth">Yuhan Lin, <span class="me">Tianxiao Wang</span></div>
+        <div class="venue"><em>Journal of Sociolinguistics</em>, 28(2), 22–41. 2024.</div>
+        <div class="links"><a href="https://doi.org/10.1111/josl.12635" target="_blank" rel="noopener">DOI</a><a href="https://onlinelibrary.wiley.com/doi/10.1111/josl.12635" target="_blank" rel="noopener">Publisher</a></div>
+        <details class="bib"><summary>BibTeX</summary><pre>@article{lin_rhyming_2024,
+        author    = {Lin, Yuhan and Wang, Tianxiao},
+        title     = {Rhyming style, persona, and the contested landscape of authentic {Chinese} hip hop},
+        journal   = {Journal of Sociolinguistics},
+        volume    = {28},
+        number    = {2},
+        pages     = {22--41},
+        year      = {2024},
+        doi       = {10.1111/josl.12635},
+        issn      = {1360-6441, 1467-9841}
+        }</pre></details>
+        </li>
+
+      <li class="pub">
+        <div>
+        <span class="title"><span data-lang="zh">新加坡语言政策对双语华人的家庭语言选择与华语家庭地位的影响</span><span data-lang="en">新加坡语言政策对双语华人的家庭语言选择与华语家庭地位的影响 <span class="langtag">[中文 / in Chinese]</span></span></span>
+        <span class="badges"><span data-lang="zh"><span class="badge">独著</span></span><span data-lang="en"><span class="badge">Sole author</span></span></span>
+        </div>
+        <div class="auth"><span class="me">王天骁</span></div>
+        <div class="venue">《语言政策与规划研究》, 2022 年第 1 期, 165–177+191–192 页.</div>
+        <details class="bib"><summary>BibTeX</summary><pre>@article{wang2022singapore,
+        author    = {王天骁},
+        title     = {新加坡语言政策对双语华人的家庭语言选择与华语家庭地位的影响},
+        journal   = {语言政策与规划研究},
+        number    = {1},
+        pages     = {165--177+191--192},
+        year      = {2022}
+        }</pre></details>
+        </li>
+
+      <li class="pub">
+        <div>
+        <span class="title"><span data-lang="zh">Feminine accent, masculine rapper</span><span data-lang="en">Feminine accent, masculine rapper</span></span>
+        <span class="badges"><span data-lang="zh"><span class="badge">独著</span></span><span data-lang="en"><span class="badge">Sole author</span></span></span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span></div>
+        <div class="venue"><em>Gender and Language</em>, 16(4), 335–358. 2022.</div>
+        <div class="links"><a href="https://doi.org/10.1558/genl.22385" target="_blank" rel="noopener">DOI</a><a href="https://utppublishing.com/doi/10.1558/genl.22385" target="_blank" rel="noopener">Publisher</a></div>
+        <details class="bib"><summary>BibTeX</summary><pre>@article{wang_feminine_2022,
+        author    = {Wang, Tianxiao},
+        title     = {Feminine accent, masculine rapper},
+        journal   = {Gender and Language},
+        volume    = {16},
+        number    = {4},
+        pages     = {335--358},
+        year      = {2022},
+        doi       = {10.1558/genl.22385},
+        issn      = {1747-6321, 1747-633X}
+        }</pre></details>
+        </li>
+
+      <li class="pub">
+        <div>
+        <span class="title"><span data-lang="zh">Sexuality vs. sensuality: The multimodal construction of affective stance in Chinese ASMR performances</span><span data-lang="en">Sexuality vs. sensuality: The multimodal construction of affective stance in Chinese ASMR performances</span></span>
+        <span class="badges"><span data-lang="zh"></span><span data-lang="en"></span></span>
+        </div>
+        <div class="auth">Rebecca Lurie Starr, <span class="me">Tianxiao Wang</span>, Christian Go</div>
+        <div class="venue"><em>Journal of Sociolinguistics</em>, 24(4), 492–513. 2020.</div>
+        <div class="links"><a href="https://doi.org/10.1111/josl.12410" target="_blank" rel="noopener">DOI</a><a href="https://onlinelibrary.wiley.com/doi/10.1111/josl.12410" target="_blank" rel="noopener">Publisher</a></div>
+        <details class="bib"><summary>BibTeX</summary><pre>@article{starr_sexuality_2020,
+        author    = {Starr, Rebecca Lurie and Wang, Tianxiao and Go, Christian},
+        title     = {Sexuality vs. sensuality: {The} multimodal construction of affective stance in {Chinese} {ASMR} performances*},
+        journal   = {Journal of Sociolinguistics},
+        volume    = {24},
+        number    = {4},
+        pages     = {492--513},
+        year      = {2020},
+        doi       = {10.1111/josl.12410},
+        issn      = {1360-6441, 1467-9841}
+        }</pre></details>
+        </li>
+
+    </ul>
+
+    <h3 class="subhead"><span data-lang="zh">专书章节</span><span data-lang="en">Book Chapters</span></h3>
+    <ul class="pubs">
+
+      <li class="pub">
+        <div>
+        <span class="title"><span data-lang="zh">Navigating variation amid contested norms and societal shifts: A case study of two L2 Mandarin speakers in Singapore</span><span data-lang="en">Navigating variation amid contested norms and societal shifts: A case study of two L2 Mandarin speakers in Singapore</span></span>
+        <span class="badges"><span data-lang="zh"></span><span data-lang="en"></span></span>
+        </div>
+        <div class="auth">Rebecca Lurie Starr, <span class="me">Tianxiao Wang</span></div>
+        <div class="venue">In <em>Sociolinguistic Variation and Language Acquisition across the Lifespan</em> (<em>Studies in Language Variation</em>, 26), pp. 199–226. John Benjamins Publishing Company, 2021.</div>
+        <div class="links"><a href="https://doi.org/10.1075/silv.26.09sta" target="_blank" rel="noopener">DOI</a><a href="https://benjamins.com/catalog/silv.26.09sta" target="_blank" rel="noopener">Publisher</a></div>
+        <details class="bib"><summary>BibTeX</summary><pre>@incollection{ghimenton_navigating_2021,
+        author    = {Starr, Rebecca Lurie and Wang, Tianxiao},
+        title     = {Navigating variation amid contested norms and societal shifts: {A} case study of two {L2} {Mandarin} speakers in {Singapore}},
+        booktitle = {Sociolinguistic {Variation} and {Language} {Acquisition} across the {Lifespan}},
+        publisher = {John Benjamins Publishing Company},
+        volume    = {26},
+        pages     = {199--226},
+        year      = {2021},
+        doi       = {10.1075/silv.26.09sta}
+        }</pre></details>
+        </li>
+
+    </ul>
+
+    <h3 class="subhead"><span data-lang="zh">会议论文</span><span data-lang="en">Conference Presentations</span></h3>
+
+    <h4 class="subhead2"><span data-lang="zh">会议演讲</span><span data-lang="en">Presented Papers</span></h4>
+    <ul class="pubs talks">
+
+      <li class="pub talk">
+        <div>
+          <span class="title">咖啡话语的文化品味构建：以外卖平台咖啡营销文案为例 <span class="langtag">[中文 / in Chinese]</span></span>
+        </div>
+        <div class="auth"><span class="me">王天骁</span>、林予涵</div>
+        <div class="venue">国际城市语言学会第二十二届年会 ｜ 北京交通大学 ｜ 2025.09.19–22</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Indexing Chinese language teacher’s authenticity on online tutoring platforms: Native and nonnative teachers’ self-branding and identity construction</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span>, Tianyi Li</div>
+        <div class="venue">8th Meeting of NWAV Asia-Pacific (NWAV-AP8) ｜ Nanyang Technological University, Singapore ｜ 2025.08.04–07</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Brewing distinction: Discursive construction of taste in Chinese coffee marketing</span>
+        </div>
+        <div class="auth">Yuhan Lin, <span class="me">Tianxiao Wang</span></div>
+        <div class="venue">8th Meeting of NWAV Asia-Pacific (NWAV-AP8) ｜ Nanyang Technological University, Singapore ｜ 2025.08.04–07</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Chinese language teachers’ stance styles on the online tutoring platforms: Native and non-native teachers’ self-branding and identity construction</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span>, Tianyi Li</div>
+        <div class="venue">30th Annual Conference of the International Association of Chinese Linguistics ｜ Yonsei University, Seoul, South Korea ｜ 2024.05.25–27</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Variation is the way to perfection: Imperfect rhyming in Chinese hip-hop</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span>, Yuhan Lin</div>
+        <div class="venue">Sociolinguistics of Pop Culture ｜ University of Bamberg, Germany ｜ 2023.03.30–31</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Beijing-flavor rap music: Style-shifting in the performance of Beijing male rappers</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span></div>
+        <div class="venue">50th Meeting of the New Ways of Analyzing Variation (NWAV) ｜ Stanford University, California, USA ｜ 2022.10.13–15</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Rhyming style, persona, and the contested landscape of authentic Chinese hip hop</span>
+        </div>
+        <div class="auth">Yuhan Lin, <span class="me">Tianxiao Wang</span></div>
+        <div class="venue">50th Meeting of the New Ways of Analyzing Variation (NWAV) ｜ Stanford University, California, USA ｜ 2022.10.13–15</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Recontextualizing feminine accent into rap music: The construction of hip-hop authenticity among Chinese male rappers</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span></div>
+        <div class="venue">24th Meeting of Sociolinguistics Symposium ｜ Ghent University, Ghent, Belgium ｜ 2022.07.13–16</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">‘Keeping it real’ with mixed codes: The multitude of hip-hop identities in China</span>
+          <span class="badges"><span data-lang="zh"><span class="badge">海报展示</span></span><span data-lang="en"><span class="badge">Poster</span></span></span>
+        </div>
+        <div class="auth">Yuhan Lin, <span class="me">Tianxiao Wang</span></div>
+        <div class="venue">24th Meeting of Sociolinguistics Symposium ｜ Ghent University, Ghent, Belgium ｜ 2022.07.13–16</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">The role of home language in the acquisition of voice onset time in Mandarin and English among bilingual youth in Singapore</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span></div>
+        <div class="venue">4th Meeting of Variation in Language Acquisition (ViLA) ｜ Swiss University for Speech and Language Therapy, Rorschach, Switzerland ｜ 2021.06.02–04</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">‘Call me Beijing No. 1 rapper, real hardcore’: Style-shifting in Beijing male rappers’ hip hop performances</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span></div>
+        <div class="venue">6th Meeting of NWAV Asia-Pacific (NWAV-AP6) ｜ National University of Singapore ｜ 2021.02.17–20</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Sensuality vs. sexuality: Suprasegmental features and affective stance in Chinese ASMR videos</span>
+        </div>
+        <div class="auth">Rebecca Lurie Starr, Christian Albert Go Go, <span class="me">Tianxiao Wang</span></div>
+        <div class="venue">26th Meeting of Lavender Languages and Linguistics Conference (LavLang26) ｜ Gothenburg, Sweden ｜ 2019.05.02–04</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">The multimodal construction of affective stance in Chinese ASMR performances</span>
+          <span class="badges"><span data-lang="zh"><span class="badge">海报展示</span></span><span data-lang="en"><span class="badge">Poster</span></span></span>
+        </div>
+        <div class="auth">Rebecca Lurie Starr, Christian Albert Go Go, <span class="me">Tianxiao Wang</span></div>
+        <div class="venue">94th Annual Meeting of the Linguistic Society of America ｜ Hilton New Orleans Riverside, Louisiana, USA ｜ 2019.01.02–05</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Family language policy in Chinese Singaporean families</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span></div>
+        <div class="venue">22nd Meeting of Sociolinguistics Symposium ｜ University of Auckland, Auckland, New Zealand ｜ 2018.06.27–30</div>
+        
+      </li>
+
+    </ul>
+
+    <h4 class="subhead2"><span data-lang="zh">受邀会议演讲</span><span data-lang="en">Invited Presentations</span></h4>
+    <ul class="pubs talks">
+
+      <li class="pub talk">
+        <div>
+          <span class="title">都市生活的风格构建：中国语境下的商品化人设与生活方式话语的语域化 <span class="langtag">[中文 / in Chinese]</span></span>
+        </div>
+        <div class="auth"><span class="me">王天骁</span>、林予涵</div>
+        <div class="venue">社会语言变异研究在中国专题工作坊 ｜ 北京大学斯坦福中心 ｜ 2026.06.22–25</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Perceiving feminine accent: Gendered style and sexuality in social perception of alveolo-palatal fricative /ɕ/-fronting in Mandarin</span>
+        </div>
+        <div class="auth"><span class="me">王天骁</span>, 廖欣宇, 梅云博</div>
+        <div class="venue">第三届社会语音学青年学者论坛 ｜ 澳门大学 ｜ 2025.11.21–23</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">From underground to mainstream: Exploring the sociolinguistics of Chinese hip hop</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span></div>
+        <div class="venue">Guest lecture, Department of Asian Languages and Cultures ｜ University of Wisconsin–Madison ｜ 2024.04.01</div>
+        
+      </li>
+
+      <li class="pub talk">
+        <div>
+          <span class="title">Choosing between “broken English” and a more familiar language: The role of grandparents in language maintenance and language shift among Singaporean Chinese families</span>
+        </div>
+        <div class="auth"><span class="me">Tianxiao Wang</span></div>
+        <div class="venue">Online workshop: Current and future research directions in Singapore Mandarin ｜ National University of Singapore ｜ 2022.02.16</div>
+        <div class="links"><a href="https://doi.org/10.17605/OSF.IO/PSWJ3" target="_blank" rel="noopener">OSF DOI</a></div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects">
+    <h2><span data-lang="zh">研究课题</span><span data-lang="en">Research Projects</span></h2>
+
+    <h3 class="subhead"><span data-lang="zh">主持课题</span><span data-lang="en">As Principal Investigator</span></h3>
+    <ul class="timeline">
+      <li>
+        <span class="when">2025 — 2028</span>
+        <span class="what">
+          <b>《来华外籍青少年儿童汉语社会语言知识构建与加工机制研究》<span class="langtag" data-lang="en">[in Chinese]</span></b>
+          <span><span data-lang="zh">国家社会科学基金青年项目 ｜ 在研 ｜ 课题编号 25CYY041</span><span data-lang="en">Youth Project, National Social Science Fund of China ｜ Active ｜ No. 25CYY041</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2025 — 2028</span>
+        <span class="what">
+          <b>《东南亚来闽华裔留学生语言社会化与身份认同研究》<span class="langtag" data-lang="en">[in Chinese]</span></b>
+          <span><span data-lang="zh">福建省社会科学规划项目 青年项目 ｜ 在研 ｜ 课题编号 FJ2025C102</span><span data-lang="en">Youth Project, Philosophy and Social Science Planning Program of Fujian Province ｜ Active ｜ No. FJ2025C102</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2025</span>
+        <span class="what">
+          <b>《语言政策视角下新马地区华人家庭跨代际交流的语码转换与华裔新生代身份构建研究》<span class="langtag" data-lang="en">[in Chinese]</span></b>
+          <span><span data-lang="zh">厦门市侨联系统调研课题 ｜ 已结项</span><span data-lang="en">Research project of the Xiamen Federation of Overseas Chinese Associations ｜ Completed</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2021 — 2024</span>
+        <span class="what">
+          <b>《汉语二语学习者的社会语言变异习得与感知研究》<span class="langtag" data-lang="en">[in Chinese]</span></b>
+          <span><span data-lang="zh">厦门大学中央高校基本科研业务费 ｜ 已结项 ｜ 课题编号 2072021119</span><span data-lang="en">Fundamental Research Funds for the Central Universities (Xiamen University) ｜ Completed ｜ No. 2072021119</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2021 — 2024</span>
+        <span class="what">
+          <b>《在闽台胞语言生活现状研究》<span class="langtag" data-lang="en">[in Chinese]</span></b>
+          <span><span data-lang="zh">福建省社会科学规划项目 青年项目 ｜ 已结项（免鉴定）｜ 课题编号 FJ2021C054</span><span data-lang="en">Youth Project, Philosophy and Social Science Planning Program of Fujian Province ｜ Completed (exempted from appraisal) ｜ No. FJ2021C054</span></span>
+        </span>
+      </li>
+    </ul>
+
+    <h3 class="subhead"><span data-lang="zh">参与课题</span><span data-lang="en">As Participant</span></h3>
+    <ul class="timeline">
+      <li>
+        <span class="when">2023 — 2028</span>
+        <span class="what">
+          <b>《粤港澳语言环境对多语语音产出与感知影响的实证研究》<span class="langtag" data-lang="en">[in Chinese]</span></b>
+          <span><span data-lang="zh">广东省哲学社会科学十四五规划青年项目 ｜ 主持人：林予涵 ｜ 课题编号 GD23YWY10</span><span data-lang="en">Youth Project, Guangdong Provincial Philosophy and Social Science Planning (14th Five-Year) ｜ PI: Yuhan Lin ｜ No. GD23YWY10</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2022 — 2023</span>
+        <span class="what">
+          <b>《国际中文教育前沿资讯》研发及平台建设<span class="langtag" data-lang="en">[in Chinese]</span></b>
+          <span><span data-lang="zh">教育部中外语言合作交流中心国际中文教育基地项目 ｜ 主持人：耿虎 ｜ 课题编号 2022YHJD1059</span><span data-lang="en">International Chinese Language Education Base Project, Center for Language Education and Cooperation, Ministry of Education ｜ PI: Hu Geng ｜ No. 2022YHJD1059</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2021</span>
+        <span class="what">
+          <b>东南亚地区本土中文教师支持发展规划调研报告<span class="langtag" data-lang="en">[in Chinese]</span></b>
+          <span><span data-lang="zh">教育部中外语言合作交流中心师资处项目 ｜ 主持人：耿虎 ｜ 新加坡及文莱部分撰稿人</span><span data-lang="en">Teacher-Development Project, Division of Teachers, Center for Language Education and Cooperation, Ministry of Education ｜ PI: Hu Geng ｜ Author of the Singapore and Brunei sections</span></span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2013 — 2016</span>
+        <span class="what">
+          <b>Children&rsquo;s Acquisition of Sociolinguistic Knowledge in Bilingual School Settings</b>
+          <span><span data-lang="zh">新加坡国立大学 人文暨社会科学学院 Start-up Research Grant ｜ 负责人：Rebecca Lurie Starr</span><span data-lang="en">National University of Singapore, Faculty of Arts &amp; Social Sciences Start-up Research Grant ｜ PI: Rebecca Lurie Starr</span></span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===================== TEACHING ===================== -->
+  <section id="teaching">
+    <h2><span data-lang="zh">讲授课程</span><span data-lang="en">Courses Taught</span></h2>
+    <ul class="courses">
+      <li>初级汉语听力</li>
+      <li>初级汉语口语</li>
+      <li>零基础汉语综合课</li>
+      <li>现代汉语语音<span data-lang="zh">（留学生本科）</span><span data-lang="en"> (undergraduate, international students)</span></li>
+      <li>语音与语音教学<span data-lang="zh">（留学生本科）</span><span data-lang="en"> (undergraduate, international students)</span></li>
+      <li>专业英语<span data-lang="zh">（研究生，全英授课）</span><span data-lang="en"> (graduate, taught in English)</span></li>
+      <li>第二语言习得<span data-lang="zh">（研究生）</span><span data-lang="en"> (graduate)</span></li>
+      <li>语言与社会生活：你我身边的语言学<span data-lang="zh">（本科生通识课）</span><span data-lang="en"> (undergraduate general-education course)</span></li>
+    </ul>
+  </section>
+
+  <!-- ===================== ACADEMIC SERVICE ===================== -->
+  <section id="service">
+    <h2><span data-lang="zh">学术服务</span><span data-lang="en">Academic Service</span></h2>
+    <p>
+      <span data-lang="zh">担任 <em>Journal of Sociolinguistics</em>、<em>Language and Communication</em>、<em>Linguistics Vanguard</em>、<em>Gender and Language</em> 等 SSCI 期刊和国际会议 New Ways of Analyzing Variation Asia-Pacific (NWAV-AP) 摘要审稿人。</span>
+      <span data-lang="en">Reviewer for SSCI journals including <em>Journal of Sociolinguistics</em>, <em>Language and Communication</em>, <em>Linguistics Vanguard</em> and <em>Gender and Language</em>, and abstract reviewer for the international conference New Ways of Analyzing Variation Asia-Pacific (NWAV-AP).</span>
+    </p>
+  </section>
+
+  <footer class="site">
+    <span><span data-lang="zh">© 2026 王天骁</span><span data-lang="en">© 2026 Tianxiao Wang</span></span>
+    <span><span data-lang="zh">最后更新：2026-10-26</span><span data-lang="en">Last updated: 2026-10-26</span></span>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  var html = document.documentElement;
+
+  // ---- language ----
+  var langBtn = document.getElementById('langBtn');
+  function setLang(l) {
+    html.setAttribute('lang', l);
+    langBtn.textContent = l === 'zh' ? 'EN' : '中文';
+    document.title = l === 'zh'
+      ? '王天骁 · Tianxiao Wang — 上海师范大学'
+      : 'Tianxiao Wang — Shanghai Normal University';
+    try { localStorage.setItem('lang', l); } catch (e) {}
+  }
+  var q = new URLSearchParams(location.search);
+  var initial = q.get('lang');
+  if (initial !== 'zh' && initial !== 'en') {
+    try { initial = localStorage.getItem('lang'); } catch (e) {}
+  }
+  setLang(initial || 'zh');
+  langBtn.addEventListener('click', function () {
+    setLang(html.getAttribute('lang') === 'zh' ? 'en' : 'zh');
+  });
+
+  // ---- theme ----
+  var themeBtn = document.getElementById('themeBtn');
+  function apply(t) {
+    if (t === 'auto') {
+      html.removeAttribute('data-theme');
+    } else {
+      html.setAttribute('data-theme', t);
+    }
+  }
+  var savedTheme = q.get('theme');
+  if (savedTheme !== 'dark' && savedTheme !== 'light') {
+    try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
+  }
+  if (savedTheme !== 'dark' && savedTheme !== 'light') {
+    savedTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  apply(savedTheme);
+  themeBtn.addEventListener('click', function () {
+    var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    apply(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  // ---- active nav ----
+  var links = [].slice.call(document.querySelectorAll('#sitenav a'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      links.forEach(function (a) { a.classList.remove('active'); });
+      if (map[e.target.id]) map[e.target.id].classList.add('active');
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('main section[id]').forEach(function (s) { obs.observe(s); });
+})();
+</script>
+</body>
+</html>
